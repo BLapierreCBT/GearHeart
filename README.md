@@ -3,13 +3,15 @@
 This project will be a group project. It is centered around the idea of having fun while using each of our talents. 
 At any point in this project you can work on it or leave it for months if you feel uninspired.
 
-Story
+---Story---
+
 The story so far is that humans have really messed up...they are all dead in fact. The earth has warmed in a way that animals and humans can't survive. Before this mess all started humans attempted to make robots that mimicked the functions of nature.
 They created animals and humanoid robots who encorporated advanced machine learning. Eventually the evolution of the 
 learning became sour and some of the robots became violent. The main charactor is one of many "somewhat peaceful" bots 
 trying to escape a hostile world. 
 
-programmer notes
+---Programmer notes---
+
 - Python powered (hell yeah)
 - We will be using the library pyarcade. This library is fairly new so the idea of distributing may be a challange/impossible.
   we may just be (hopefully)impressing the python community and leaving a mark as that random group of people who made a
@@ -18,7 +20,8 @@ programmer notes
 - Why pyarcade? It's easy to understand! 
 - Why python? Because it's a fucking snake duh
 
-Ideas (no idea is ever fixed)
+---Ideas (no idea is ever fixed)---
+
 - shooter 2d 
 - main charactor is a humanoid cyborg(something like mega-man but original?)
 - all monsters including the main charactor have some visable cog turning with body movement?
@@ -28,43 +31,51 @@ Ideas (no idea is ever fixed)
   feel inspired.
 - all ideas should follow a post global warming theme think of mad max meets jurassic park? 
 
-Who?
+---Who?---
+
 - The people who work on this have unique skill(s)
 - passionate or inspired people
 - sometimes lazy or busy people (like me)
 
-why?
+---why?--- 
+
 - experience....we all have skills we want to grow and working collaboratively is a perfect way to do it! 
 - fun?
 - tell your boss how cool this game is so he/she will give you a raise? 
 
-when?
+---when?---
+
 - whenever you feel inspired
 - never when you feel forced
 
-Team (join/quit/start/die at any point)
+---Team (join/quit/start/die at any point)---
+
 -Brett (game dev/Project bumper lane) I make sure the bowling ball of ideas don't land in the gutter. Voting overides anyones idea(even mine)... don't take it too personally 
 -Ray (game dev/game logic specialist) Ray and I worked on the famous "blimpy blimp" game. He is a solid programmer who has a talent for game logic. 
 -Logan (game dev/FX manager) Logan is a professional programmer(most languages), sound professional, and Volkswagon whisperer. 
 -Chris (animator) Chris is a professional animator/editor. His 2d animation skillset is perfect for this project. 
 
-Team notes
+---Team notes---
+
 We should feel free to edit this as we see fit. Programmers make to use a branch to encorporate your edits. All huge 
 changes should be voted on or at least looked into. All programming, game logic, FX, animation, and other are prone to being 
 changed or altered by myself or other team members. My goal(Brett) is to ensure the smooth overall message of the game and 
 ensure ideas are flowing between team members. A majority vote of the approved team members can override my opinions. 
 
-Team Communication
+---Team Communication---
+
 - text (group text)
 - team viewer
 - discord, skype, phone, any voice stuff
 - burnt tire as a smoke signal? 
 
-Who is invited to the team?
+---Who is invited to the team?---
+
 A quick vote is required for any additional members to the team. They must be enthusiastic about coding, or 
 have a unique skill related to the overall goal. 
 
-End notes.
+---End notes---
+
 These notes will change as our goal becomes clearer. Some people may come and go but will leave their mark on this project. 
 I want to see those who feel inspired to push themselves to look back on this and say "ya that was cool when WE did that". 
 
