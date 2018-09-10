@@ -1,4 +1,8 @@
 '''
+Everything below is mostly code I pulled from the pyarcade library.
+
+
+
 This calculates a 'vector' towards the player and randomly updates it based
 on the player's location. This is a bit more complex, but more interesting
 way of following the player.
@@ -114,7 +118,8 @@ class MyGame(arcade.Window):
             # Position the monster
             monsters.center_x = random.randrange(SCREEN_WIDTH)
             monsters.center_y = random.randrange(SCREEN_HEIGHT)
-            #makes sure the monsters do not spawn on top of the player
+            
+            #(brett mod)makes sure the monsters do not spawn on top of the player
             if monsters.center_x or monsters.center_y <= player_sprite.center_x and player_sprite.center_y:
                 monsters.center_x += 50
                 monsters.center_y += 50
