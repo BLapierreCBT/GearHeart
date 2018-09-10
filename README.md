@@ -7,7 +7,7 @@ At any point in this project you can work on it or leave it for months if you fe
 
 The story so far is that humans have really messed up...they are all dead in fact. The earth has warmed in a way that animals and humans can't survive. Before this mess all started humans attempted to make robots that mimicked the functions of nature.
 They created animals and humanoid robots who encorporated advanced machine learning. Eventually the evolution of the 
-learning became sour and some of the robots became violent. The main charactor is one of many "somewhat peaceful" bots 
+learning became sour and some of the robots became violent. The main character is one of many "somewhat peaceful" bots 
 trying to escape a hostile world. 
 
 ---Programmer notes---
