@@ -42,16 +42,22 @@ when?
 - never when you feel forced
 
 Team (join/quit/start/die at any point)
-Brett (game dev/Project bumper lane) I make sure the bowling ball of ideas don't land in the gutter. 
-Ray (game dev/game logic specialist)
-Logan(game dev/FX manager)
-Chris(animator)
+-Brett (game dev/Project bumper lane) I make sure the bowling ball of ideas don't land in the gutter. 
+-Ray (game dev/game logic specialist)
+-Logan(game dev/FX manager)
+-Chris(animator)
 
 Team notes
 We should feel free to edit this as we see fit. Programmers make to use a branch to encorporate your edits. All huge 
 changes should be voted on or at least looked into. All programming, game logic, FX, animation, and other are prone to being 
 changed or altered by myself or other team members. My goal(Brett) is to ensure the smooth overall message of the game and 
 ensure ideas are flowing between team members. A majority vote of the approved team members can override my opinions. 
+
+Team Communication
+- text (group text)
+- team viewer
+- discord, skype, phone, any voice stuff
+- burnt tire as a smoke signal? 
 
 Who is invited to the team?
 A quick vote is required for any additional members to the team. They must be enthusiastic about coding, or 
