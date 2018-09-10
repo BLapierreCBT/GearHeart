@@ -24,7 +24,7 @@ trying to escape a hostile world.
 
 - shooter 2d 
 - main character is a humanoid cyborg(something like mega-man but original?)
-- all monsters including the main charactor have some visable cog turning with body movement?
+- all monsters including the main character have some visable cog turning with body movement?
 - procedural maps?
 - parts of the game can find the character defend an object? Like a level? 
 - I want all ideas to be fresh. I want everyone who is working on this to only do so when they come up with something unique or
