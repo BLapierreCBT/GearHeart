@@ -57,8 +57,8 @@ trying to escape a hostile world.
 
 ---Team notes---
 
-We should feel free to edit this as we see fit. Programmers please make new branch to encorporate your edits. All huge 
-changes should be voted on or at least looked into. All programming, game logic, FX, animation, and other stuff is prone to being changed or altered by myself or other team members. My goal is to ensure the smooth overall message of the game and 
+We should feel free to edit this as we see fit. Programmers please make a new branch to encorporate your edits. All huge 
+changes should be voted on or at least looked into. All programming, game logic, FX, animation, and other stuff are prone to being changed or altered by myself or other team members. My goal is to ensure the smooth overall message of the game and 
 ensure ideas are flowing between team members. A majority vote by the approved team members can override any decision by any
 team member. 
 
