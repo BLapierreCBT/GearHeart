@@ -4,8 +4,6 @@ Face left or right depending on our direction
 
 Simple program to show basic sprite usage.
 
-Artwork from http://kenney.nl
-
 If Python and Arcade are installed, this example can be run from the command line with:
 python -m arcade.examples.sprite_face_left_or_right
 """
@@ -17,8 +15,8 @@ import os
 
 SPRITE_SCALING_PLAYER = 1
 MONSTER_SCALING_IMG = 2
-MONSTER_COUNT = 100
-MONSTER_SPEED = 1.5
+MONSTER_COUNT = 20
+MONSTER_SPEED = 2
 
 SCREEN_WIDTH = 1400
 SCREEN_HEIGHT = 550
@@ -38,7 +36,6 @@ class monster(arcade.Sprite):
         the target sprite, and not jump around if the sprite is not off
         an exact multiple of SPRITE_SPEED.
         """
-
         self.center_x += self.change_x
         self.center_y += self.change_y
 
@@ -188,21 +185,21 @@ class MyGame(arcade.Window):
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed. """
 
-        if key == arcade.key.UP:
+        if key == arcade.key.W:
             self.player_sprite.change_y = MOVEMENT_SPEED
-        elif key == arcade.key.DOWN:
+        elif key == arcade.key.S:
             self.player_sprite.change_y = -MOVEMENT_SPEED
-        elif key == arcade.key.LEFT:
+        elif key == arcade.key.A:
             self.player_sprite.change_x = -MOVEMENT_SPEED
-        elif key == arcade.key.RIGHT:
+        elif key == arcade.key.D:
             self.player_sprite.change_x = MOVEMENT_SPEED
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key. """
 
-        if key == arcade.key.UP or key == arcade.key.DOWN:
+        if key == arcade.key.W or key == arcade.key.S:
             self.player_sprite.change_y = 0
-        elif key == arcade.key.LEFT or key == arcade.key.RIGHT:
+        elif key == arcade.key.A or key == arcade.key.D:
             self.player_sprite.change_x = 0
 
 def main():
@@ -210,6 +207,6 @@ def main():
     window = MyGame()
     window.setup()
     arcade.run()
-    
+
 if __name__ == "__main__":
     main()
