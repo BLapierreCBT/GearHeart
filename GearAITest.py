@@ -1,32 +1,29 @@
-'''
-Everything below is mostly code I pulled from the pyarcade library.
+"""
+Sprite Move With Keyboard
+Face left or right depending on our direction
 
+Simple program to show basic sprite usage.
 
-
-This calculates a 'vector' towards the player and randomly updates it based
-on the player's location. This is a bit more complex, but more interesting
-way of following the player.
+Artwork from http://kenney.nl
 
 If Python and Arcade are installed, this example can be run from the command line with:
-python -m arcade.examples.sprite_collect_coins
-'''
-
+python -m arcade.examples.sprite_face_left_or_right
+"""
 
 import random
 import arcade
 import math
 import os
 
-# --- Constants ---
-SPRITE_SCALING_PLAYER = 2
+SPRITE_SCALING_PLAYER = 1
 MONSTER_SCALING_IMG = 2
-MONSTER_COUNT = 10
+MONSTER_COUNT = 100
 MONSTER_SPEED = 1.5
 
 SCREEN_WIDTH = 1400
 SCREEN_HEIGHT = 550
+MOVEMENT_SPEED = 5
 
-SPRITE_SPEED = 3
 
 class monster(arcade.Sprite):
     """
@@ -37,7 +34,6 @@ class monster(arcade.Sprite):
         """
         This function will move the current sprite towards whatever
         other sprite is specified as a parameter.
-
         We use the 'min' function here to get the sprite to line up with
         the target sprite, and not jump around if the sprite is not off
         an exact multiple of SPRITE_SPEED.
@@ -67,6 +63,40 @@ class monster(arcade.Sprite):
             # and change_y. Velocity is how fast the bullet travels.
             self.change_x = math.cos(angle) * MONSTER_SPEED
             self.change_y = math.sin(angle) * MONSTER_SPEED
+
+class Player(arcade.Sprite):
+
+    def __init__(self):
+        super().__init__()
+
+        # Load a left facing texture and a right facing texture.
+        # mirrored=True will mirror the image we load.
+        self.texture_left = arcade.load_texture("sprites/manLeft.png", mirrored=True, scale=SPRITE_SCALING_PLAYER)
+        self.texture_right = arcade.load_texture("sprites/manRight.png", scale=SPRITE_SCALING_PLAYER)
+
+        # By default, face right.
+        self.texture = self.texture_right
+
+    def update(self):
+        self.center_x += self.change_x
+        self.center_y += self.change_y
+
+        # Figure out if we should face left or right
+        if self.change_x < 0:
+            self.texture = self.texture_left
+        if self.change_x > 0:
+            self.texture = self.texture_right
+
+        if self.left < 0:
+            self.left = 0
+        elif self.right > SCREEN_WIDTH - 1:
+            self.right = SCREEN_WIDTH - 1
+
+        if self.bottom < 0:
+            self.bottom = 0
+        elif self.top > SCREEN_HEIGHT - 1:
+            self.top = SCREEN_HEIGHT - 1
+
 
 class MyGame(arcade.Window):
     """ Our custom Window Class"""
@@ -106,7 +136,7 @@ class MyGame(arcade.Window):
         self.score = 0
         # Set up the player
         # Character image
-        self.player_sprite = arcade.Sprite("sprites\man.png", SPRITE_SCALING_PLAYER)
+        self.player_sprite = arcade.Sprite("sprites\manRight.png", SPRITE_SCALING_PLAYER)
         self.player_sprite.center_x = 50
         self.player_sprite.center_y = 50
         self.player_list.append(self.player_sprite)
@@ -118,8 +148,8 @@ class MyGame(arcade.Window):
             # Position the monster
             monsters.center_x = random.randrange(SCREEN_WIDTH)
             monsters.center_y = random.randrange(SCREEN_HEIGHT)
-            
-            #(brett mod)makes sure the monsters do not spawn on top of the player
+
+            # (brett mod)makes sure the monsters do not spawn on top of the player
             if monsters.center_x or monsters.center_y <= player_sprite.center_x and player_sprite.center_y:
                 monsters.center_x += 50
                 monsters.center_y += 50
@@ -138,15 +168,9 @@ class MyGame(arcade.Window):
         output = f"Score: {self.score}"
         arcade.draw_text(output, 10, 20, arcade.color.WHITE, 14)
 
-    def on_mouse_motion(self, x, y, dx, dy):
-        """ Handle Mouse Motion """
-        # Move the center of the player sprite to match the mouse x, y
-        self.player_sprite.center_x = x
-        self.player_sprite.center_y = y
-
     def update(self, delta_time):
         """ Movement and game logic """
-        #this will reduce the lag created by monsters that do not need collision detection
+        # this will reduce the lag created by monsters that do not need collision detection
         self.monster_list.use_spatial_hash = False
         for monster in self.monster_list:
             monster.follow_sprite(self.player_sprite)
@@ -158,13 +182,34 @@ class MyGame(arcade.Window):
         for monster in hit_list:
             monster.kill()
             self.score -= 1
-
+        self.player_list.update()
         self.monster_list.update()
+        use_spatial_hash = True
+    def on_key_press(self, key, modifiers):
+        """Called whenever a key is pressed. """
+
+        if key == arcade.key.UP:
+            self.player_sprite.change_y = MOVEMENT_SPEED
+        elif key == arcade.key.DOWN:
+            self.player_sprite.change_y = -MOVEMENT_SPEED
+        elif key == arcade.key.LEFT:
+            self.player_sprite.change_x = -MOVEMENT_SPEED
+        elif key == arcade.key.RIGHT:
+            self.player_sprite.change_x = MOVEMENT_SPEED
+
+    def on_key_release(self, key, modifiers):
+        """Called when the user releases a key. """
+
+        if key == arcade.key.UP or key == arcade.key.DOWN:
+            self.player_sprite.change_y = 0
+        elif key == arcade.key.LEFT or key == arcade.key.RIGHT:
+            self.player_sprite.change_x = 0
+
 def main():
     """ Main method """
     window = MyGame()
     window.setup()
     arcade.run()
-
+    
 if __name__ == "__main__":
     main()
