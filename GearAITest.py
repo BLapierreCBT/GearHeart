@@ -1,9 +1,3 @@
-"""
-Sprite Move With Keyboard
-Face left or right depending on our direction
-
-Simple program to show basic sprite usage.
-
 If Python and Arcade are installed, this example can be run from the command line with:
 python -m arcade.examples.sprite_face_left_or_right
 """
@@ -14,8 +8,9 @@ import math
 import os
 
 SPRITE_SCALING_PLAYER = 1
+SPRIT_SCALING_LASER = 5
 MONSTER_SCALING_IMG = 2
-MONSTER_COUNT = 20
+MONSTER_COUNT = 10
 MONSTER_SPEED = 2
 
 SCREEN_WIDTH = 1400
@@ -30,6 +25,9 @@ class monster(arcade.Sprite):
     """
     def follow_sprite(self, player_sprite):
         """
+        :param player_sprite: 
+        :return: 
+        """"""
         This function will move the current sprite towards whatever
         other sprite is specified as a parameter.
         We use the 'min' function here to get the sprite to line up with
@@ -61,6 +59,8 @@ class monster(arcade.Sprite):
             self.change_x = math.cos(angle) * MONSTER_SPEED
             self.change_y = math.sin(angle) * MONSTER_SPEED
 
+
+
 class Player(arcade.Sprite):
 
     def __init__(self):
@@ -68,8 +68,8 @@ class Player(arcade.Sprite):
 
         # Load a left facing texture and a right facing texture.
         # mirrored=True will mirror the image we load.
-        self.texture_left = arcade.load_texture("sprites/manLeft.png", mirrored=True, scale=SPRITE_SCALING_PLAYER)
-        self.texture_right = arcade.load_texture("sprites/manRight.png", scale=SPRITE_SCALING_PLAYER)
+        self.texture_left = arcade.load_texture("sprites/manLeft.png", mirrored=True, scale = SPRITE_SCALING_PLAYER)
+        self.texture_right = arcade.load_texture("sprites/manRight.png", scale = SPRITE_SCALING_PLAYER)
 
         # By default, face right.
         self.texture = self.texture_right
@@ -113,22 +113,21 @@ class MyGame(arcade.Window):
         # Variables that will hold sprite lists
         self.player_list = None
         self.monster_list = None
-        use_spatial_hash = False
         # Set up the player info
         self.player_sprite = None
+        self.laser_sprite = None
         self.score = 0
 
         # Don't show the mouse cursor
         self.set_mouse_visible(False)
-
         arcade.set_background_color(arcade.color.BROWN_NOSE)
 
     def setup(self):
         """ Set up the game and initialize the variables. """
-
         # Sprite lists
         self.player_list = arcade.SpriteList()
         self.monster_list = arcade.SpriteList()
+        self.laser_dot_list = arcade.SpriteList()
         # Score
         self.score = 0
         # Set up the player
@@ -137,6 +136,9 @@ class MyGame(arcade.Window):
         self.player_sprite.center_x = 50
         self.player_sprite.center_y = 50
         self.player_list.append(self.player_sprite)
+        # Laser aim
+        self.laser_sprite = arcade.Sprite("sprites\laserDot.png",SPRIT_SCALING_LASER)
+        self.laser_dot_list.append(self.laser_sprite)
         # Create the monsters
         for i in range(MONSTER_COUNT):
             # Create the monsters instance
@@ -147,7 +149,7 @@ class MyGame(arcade.Window):
             monsters.center_y = random.randrange(SCREEN_HEIGHT)
 
             # (brett mod)makes sure the monsters do not spawn on top of the player
-            if monsters.center_x or monsters.center_y <= player_sprite.center_x and player_sprite.center_y:
+            if monsters.center_x or monsters.center_y <= player_sprite.center_x or player_sprite.center_y:
                 monsters.center_x += 50
                 monsters.center_y += 50
             else:
@@ -160,10 +162,14 @@ class MyGame(arcade.Window):
         arcade.start_render()
         self.monster_list.draw()
         self.player_list.draw()
-
+        self.laser_dot_list.draw()
         # Put the text on the screen.
         output = f"Score: {self.score}"
         arcade.draw_text(output, 10, 20, arcade.color.WHITE, 14)
+
+    def on_mouse_motion(self, x, y, dx, dy):
+        self.laser_sprite.center_x = x
+        self.laser_sprite.center_y = y
 
     def update(self, delta_time):
         """ Movement and game logic """
@@ -171,16 +177,15 @@ class MyGame(arcade.Window):
         self.monster_list.use_spatial_hash = False
         for monster in self.monster_list:
             monster.follow_sprite(self.player_sprite)
-
         # Generate a list of all sprites that collided with the player.
         hit_list = arcade.check_for_collision_with_list(self.player_sprite, self.monster_list)
-
         # Loop through each colliding sprite, remove it, and add to the score.
         for monster in hit_list:
             monster.kill()
             self.score -= 1
         self.player_list.update()
         self.monster_list.update()
+        self.laser_dot_list.update()
         use_spatial_hash = True
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed. """
@@ -209,4 +214,4 @@ def main():
     arcade.run()
 
 if __name__ == "__main__":
-    main()
+main()
