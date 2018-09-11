@@ -1,4 +1,4 @@
- # GearHeart
+# GearHeart
 
 This project will be a group project. It is centered around the idea of having fun while using each of our talents. 
 At any point in this project you can work on it or leave it for months if you feel uninspired.
@@ -16,17 +16,19 @@ trying to escape a hostile world.
 - We will be using the library pyarcade. This library is fairly new so the idea of distributing may be a challange/impossible.
   we may just be (hopefully) impressing the python community and leaving a mark as that random group of people who made a
   better than average game with "some new library"..... hopefully they will say "holy shit that was rad".... "i didn't know 
-  python progammers made cool games!"
+  python progammers made cool games?"
 - Why pyarcade? It's easy to understand! 
 - Why python? Because it's a fucking snake duh... 
 
 ---Ideas (no idea is ever fixed)---
 
+- keep ideas fresh and unique. 
 - shooter 2d 
+- monster wave game?
 - main character is a humanoid cyborg(something like mega-man but original?)
 - all monsters including the main character have some visable cog turning with body movement?
 - procedural maps?
-- parts of the game can find the character defend an object? Like a level? 
+- defend an object from waves of monsters? 
 - I want all ideas to be fresh. I want everyone who is working on this to only do so when they come up with something unique or
   feel inspired.
 - all ideas should follow a post global warming theme think of mad max meets jurassic park? 
@@ -54,11 +56,12 @@ trying to escape a hostile world.
 - Ray (game dev/game logic specialist) Ray and I worked on the famous "blimpy blimp" game. He is a solid programmer who has a talent for game logic. 
 - Logan (game dev/FX manager) Logan is a professional programmer(most languages), sound professional, and Volkswagon whisperer. 
 - Chris (animator) Chris is a professional animator/editor. His 2d animation skillset is perfect for this project. 
+- Devin (game Dev/Skynet dev) Devin is always a push of a button away from activating skynet.
 
 ---Team notes---
 
-We should feel free to edit this as we see fit. Programmers please make a new branch to encorporate your edits. All huge 
-changes should be voted on or at least looked into. All programming, game logic, FX, animation, and other stuff are prone to being changed or altered by myself or other team members. My goal is to ensure the smooth overall message of the game and 
+We should feel free to edit this as we see fit. Programmers please make new branch to encorporate your edits. All huge 
+changes should be voted on or at least looked into. All programming, game logic, FX, animation, and other stuff is prone to being changed or altered by myself or other team members. My goal is to ensure the smooth overall message of the game and 
 ensure ideas are flowing between team members. A majority vote by the approved team members can override any decision by any
 team member. 
 
@@ -72,12 +75,12 @@ team member.
 
 ---Who is invited to the team?---
 
-A quick vote is required for any additional members to the team. They must be enthusiastic about coding, or 
+A quick vote is required for any additional members to the team(after the initial few). They must be enthusiastic about coding, or 
 have a unique skill related to the overall mission of this project. 
 
 ---End notes---
 
 These notes will change as our goal becomes clearer. Some people may come and go but will leave their mark on this project. 
-I inspired people to push themselves to look back on this and say "ya that was cool when WE did that". 
+I inspire people to push themselves to look back on this and say "ya that was cool when WE did that". 
 
 WE is the important word.
